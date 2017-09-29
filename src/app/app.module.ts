@@ -2,17 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ListingsComponent } from './listings/listings.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+
+
+const appRoutes: Routes = [
+  { path: 'listings', component: ListingsComponent },
+  { path: 'home', component: WelcomeComponent },
+  { path: '', component: WelcomeComponent },
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListingsComponent,
+    WelcomeComponent
   ],
   imports: [
+    
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
